@@ -1,0 +1,46 @@
+<div class="card mb-3" style="max-width: 20rem;">
+  <h3 class="card-header">{{ movie.Title }}</h3>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ movie.Year }} - {{ movie.Type }} -
+      {{ infoMovie?.Genre }}
+    </h5>
+    <h6 class="card-subtitle text-muted">{{ infoMovie?.Plot }}</h6>
+  </div>
+  <img
+    style="height: 200px; width: 100%; display: block;"
+    src="{{ movie.Poster }}"
+    alt="Card image"
+  />
+  <div class="card-body">
+    <p class="card-text">
+      Released at {{ infoMovie?.Released }} -
+      <a href="{{ infoMovie?.Website }}" class="card-link">visite our site</a>
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      imdb Rating : {{ infoMovie?.imdbRating }} - imdb Votes :
+      {{ infoMovie?.imdbVotes }}
+    </li>
+    <li class="list-group-item">Actors : {{ infoMovie?.Actors }}</li>
+    <li class="list-group-item">Director : {{ infoMovie?.Director }}</li>
+    <li class="list-group-item">Writer : {{ infoMovie?.Writer }}</li>
+    <li class="list-group-item">Runtime : {{ infoMovie?.Runtime }}</li>
+    <li class="list-group-item">Production : {{ infoMovie?.Production }}</li>
+    <li class="list-group-item">Language : {{ infoMovie?.Language }}</li>
+    <li class="list-group-item">DVD : {{ infoMovie?.DVD }}</li>
+    <li class="list-group-item">Country : {{ infoMovie?.Country }}</li>
+    <li class="list-group-item">BoxOffice : {{ infoMovie?.BoxOffice }}</li>
+  </ul>
+  <div class="card-footer text-muted">
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let ratings of infoMovie?.Ratings"
+    >
+      <li class="list-group-item">
+        {{ ratings.Source }} value {{ ratings.Value }}
+      </li>
+    </ul>
+  </div>
+</div>
